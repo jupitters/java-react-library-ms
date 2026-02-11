@@ -17,6 +17,10 @@ class BookService {
     updateBook(book, id){
         return axios.put(API_BASE_URL + '/' + id, book);
     }
+
+    deleteBook(id){
+        return axios.delete(API_BASE_URL + '/' + id);
+    }
 }
 
 export default new BookService();
