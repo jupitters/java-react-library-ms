@@ -15,6 +15,17 @@ class CreateBookComponent extends Component{
         this.saveBook = this.saveBook.bind(this)
     }
 
+    componentDidMount() {
+        if(this.state.id == -1){
+            return
+        }else{
+            BookService.getBookById(this.state.id).then((res) => {
+                let employee = res.data;
+                this.setState({ name: book.name, author: book.author})
+            })
+        }
+    }
+
     saveBook = (e) => {
         e.preventDefault()
 
