@@ -10,6 +10,14 @@ class CreateBookComponent extends Component{
         }
         this.changeNameHandler = this.changeNameHandler.bind(this)
         this.changeAuthorHandler = this.changeAuthorHandler.bind(this)
+        this.saveBook = this.saveBook.bind(this)
+    }
+
+    saveBook = (e) => {
+        e.preventDefault()
+
+        let book = {name: this.state.name, author: this.state.author};
+
     }
 
     changeNameHandler = (e) => {
