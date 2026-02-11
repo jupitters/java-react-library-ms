@@ -19,6 +19,10 @@ class ListBookComponent extends Component{
         })
     }
 
+    viewBook(id){
+        this.props.history.push(`/view-book/${id}`);
+    }
+
     editBook(id){
         this.props.history.push(`/add-book/${id}`);
     }
@@ -58,6 +62,7 @@ class ListBookComponent extends Component{
                                 <td>
                                     <button onClick={() => this.editBook(book.id)} className="btn btn-info">Update</button>
                                     <button style={{marginLeft: "10px"}} onClick={() => this.deleteBook(book.id)} className="btn btn-alert">Delete</button>
+                                    <button style={{marginLeft: "10px"}} onClick={() => this.viewBook(book.id)} className="btn btn-info">View</button>
                                 </td>
                             </tr>
                             )
