@@ -26,12 +26,13 @@ public class BookController {
         return bookRepository.save(book);
     }
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("/books/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable Long id){
         Book book = bookRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book Not Found"));
         return ResponseEntity.ok(book);
     }
 
+    @PutMapping("/books/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book bookDetails){
         Book book = bookRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book Not Found"));
         book.setName(bookDetails.getName());
