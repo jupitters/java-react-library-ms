@@ -20,7 +20,7 @@ class CreateBookComponent extends Component{
             return
         }else{
             BookService.getBookById(this.state.id).then((res) => {
-                let employee = res.data;
+                let book = res.data;
                 this.setState({ name: book.name, author: book.author})
             })
         }
