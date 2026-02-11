@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import BookService from "../services/BookService";
 
 class ListBookComponent extends Component{
     constructor(props){
@@ -10,7 +11,9 @@ class ListBookComponent extends Component{
     }
 
     componentDidMount() {
-
+        BookService.getBooks().then((res) => {
+            this.setState({ books: res.data });
+        })
     }
 
     render(){
