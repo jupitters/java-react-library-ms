@@ -24,6 +24,7 @@ public class BookController {
         return bookRepository.save(book);
     }
 
+    @GetMapping("/employees/{id}")
     public Book getBookById(@PathVariable Long id){
         return bookRepository.findById(id).get();
     }
