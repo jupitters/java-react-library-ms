@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class HeaderComponent extends Component{
+class FooterComponent extends Component{
     constructor(props){
         super(props)
 
@@ -18,4 +18,4 @@ class HeaderComponent extends Component{
     }
 }
 
-export default HeaderComponent
+export default FooterComponent
