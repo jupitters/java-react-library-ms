@@ -16,7 +16,7 @@ class CreateBookComponent extends Component{
     }
 
     componentDidMount() {
-        if(this.state.id === -1){
+        if(this.state.id == -1){
             return
         }else{
             BookService.getBookById(this.state.id).then((res) => {
@@ -30,7 +30,7 @@ class CreateBookComponent extends Component{
         e.preventDefault()
         let book = {name: this.state.name, author: this.state.author};
 
-        if(this.state.id === -1){
+        if(this.state.id == -1){
             BookService.createBook(book).then(res => {
                 this.props.history.push("/books");
             })
@@ -56,7 +56,7 @@ class CreateBookComponent extends Component{
     }
 
     getTitle(){
-        if(this.state.id === -1){
+        if(this.state.id == -1){
             return <h3 className="text-center">Add Employee</h3>
         }else{
             return <h3 className="text-center">update Employee</h3>
