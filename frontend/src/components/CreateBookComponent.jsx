@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import BookService from "../services/BookService";
 
 class CreateBookComponent extends Component{
     constructor(props){
@@ -17,7 +18,9 @@ class CreateBookComponent extends Component{
         e.preventDefault()
 
         let book = {name: this.state.name, author: this.state.author};
-
+        BookService.createBook(book).then(res => {
+            this.props.history.push("/books");
+        })
     }
 
     changeNameHandler = (e) => {
