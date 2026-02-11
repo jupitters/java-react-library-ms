@@ -4,6 +4,7 @@ import com.jupitters.library_ms.exception.ResourceNotFoundException;
 import com.jupitters.library_ms.model.Book;
 import com.jupitters.library_ms.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +27,8 @@ public class BookController {
     }
 
     @GetMapping("/employees/{id}")
-    public Book getBookById(@PathVariable Long id){
-        return bookRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book Not Found"));
+    public ResponseEntity<Book> getBookById(@PathVariable Long id){
+        Book book = bookRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book Not Found"));
+        return ResponseEntity.ok(book);
     }
 }
