@@ -8,6 +8,7 @@ class ListBookComponent extends Component{
         this.state = {
             books: []
         }
+        this.addBook = this.addBook.bind(this);
     }
 
     componentDidMount() {
@@ -16,10 +17,17 @@ class ListBookComponent extends Component{
         })
     }
 
+    addBook(){
+        this.props.history.push("/add-employee");
+    }
+
     render(){
         return(
             <div>
                 <h2 className="text-center">Books List</h2>
+                <div className="row">
+                    <button className="btn btn-primary" onClick={this.addBook}> Add Book</button>
+                </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
                         <thead>
