@@ -1,5 +1,6 @@
 package com.jupitters.library_ms.controller;
 
+import com.jupitters.library_ms.exception.ResourceNotFoundException;
 import com.jupitters.library_ms.model.Book;
 import com.jupitters.library_ms.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,6 @@ public class BookController {
 
     @GetMapping("/employees/{id}")
     public Book getBookById(@PathVariable Long id){
-        return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book Not Found"));
+        return bookRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book Not Found"));
     }
 }
