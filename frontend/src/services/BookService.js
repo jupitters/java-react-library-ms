@@ -9,6 +9,10 @@ class BookService {
     createBook(book){
         return axios.post(API_BASE_URL, book);
     }
+
+    getBookById(id){
+        return axios.get(API_BASE_URL + '/' + id);
+    }
 }
 
 export default new BookService();
