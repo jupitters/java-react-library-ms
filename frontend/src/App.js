@@ -17,8 +17,8 @@ function App() {
                       <Switch>
                           <Route path="/" exact component={ListBookComponent} />
                           <Route path="/books" component={ListBookComponent} />
-                          <Route path="/add-book" component={CreateBookComponent} />
-                          <Route path="/update-book/:id" component={UpdateBookComponent} />
+                          <Route path="/add-book/:id" component={CreateBookComponent} />
+                          {/*<Route path="/update-book/:id" component={UpdateBookComponent} />*/}
                       </Switch>
                   </div>
                   <FooterComponent />

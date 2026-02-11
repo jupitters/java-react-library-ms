@@ -6,6 +6,7 @@ class CreateBookComponent extends Component{
         super(props)
 
         this.state = {
+            id: this.props.match.params.id,
             name: '',
             author: ''
         }
