@@ -23,4 +23,8 @@ public class BookController {
     public Book saveBook(@RequestBody Book book){
         return bookRepository.save(book);
     }
+
+    public Book getBookById(@PathVariable Long id){
+        return bookRepository.findById(id).get();
+    }
 }
