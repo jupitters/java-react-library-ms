@@ -6,12 +6,20 @@ class UpdateBookComponent extends Component {
         super(props)
 
         this.state = {
+            id: this.props.match.params.id,
             name: '',
             author: ''
         }
         this.changeNameHandler = this.changeNameHandler.bind(this)
         this.changeAuthorHandler = this.changeAuthorHandler.bind(this)
         this.updateBook = this.updateBook.bind(this)
+    }
+
+    componentDidMount() {
+        BookService.getBookById(this.state.id).then((res) => {
+            let employee = res.data;
+            this.setState({ name: book.name, author: book.author})
+        })
     }
 
     updateBook = (e) => {
@@ -53,7 +61,7 @@ class UpdateBookComponent extends Component {
                                         <input placeholder="Author" name="author" className="form-control" value={this.state.author} onChange={this.changeAuthorHandler} />
                                     </div>
 
-                                    <button className="btn btn-success" onClick={this.updateBook}>Update</button>
+                                    <button className="btn btn-success" onClick={this.updateBook}>Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                 </form>
                             </div>
