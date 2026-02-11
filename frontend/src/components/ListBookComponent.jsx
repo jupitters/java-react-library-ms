@@ -13,6 +13,12 @@ class ListBookComponent extends Component{
         this.deleteBook = this.deleteBook.bind(this);
     }
 
+    deleteBook(id){
+        BookService.deleteBook(id).then(res => {
+            this.setState({ books: this.state.books.filter(book => book.id != id) })
+        })
+    }
+
     editBook(id){
         this.props.history.push(`/add-book/${id}`);
     }
