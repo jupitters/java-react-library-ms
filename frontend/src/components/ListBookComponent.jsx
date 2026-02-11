@@ -43,6 +43,9 @@ class ListBookComponent extends Component{
                             <tr key={book.id}>{book.name}
                                 <td>{book.name}</td>
                                 <td>{book.author}</td>
+                                <td>
+                                    <button onClick={() => this.editBook(book.id)} className="btn btn-info">Update</button>
+                                </td>
                             </tr>
                             )
                         }

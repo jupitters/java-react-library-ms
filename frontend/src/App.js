@@ -5,6 +5,7 @@ import ListBookComponent from "./components/ListBookComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
 import CreateBookComponent from "./components/CreateBookComponent";
+import UpdateBookComponent from "./components/UpdateBookComponent";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
                           <Route path="/" exact component={ListBookComponent} />
                           <Route path="/books" component={ListBookComponent} />
                           <Route path="/add-book" component={CreateBookComponent} />
+                          <Route path="/update-book/:id" component={UpdateBookComponent} />
                       </Switch>
                   </div>
                   <FooterComponent />
