@@ -19,8 +19,18 @@ class ListBookComponent extends Component{
                             <tr>
                                 <th>Book Name</th>
                                 <th>Book Author</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
+                        <tbody>
+                        {
+                            this.state.books.map(book =>
+                            <tr key={book.id}>{book.name}
+                                <td>{book.name}</td>
+                                <td>{book.author}</td>
+                            </tr>)
+                        }
+                        </tbody>
                     </table>
                 </div>
             </div>
