@@ -8,6 +8,8 @@ class CreateBookComponent extends Component{
             name: '',
             author: ''
         }
+        this.changeNameHandler = this.changeNameHandler.bind(this)
+        this.changeAuthorHandler = this.changeAuthorHandler.bind(this)
     }
 
     changeNameHandler = (e) => {
@@ -35,6 +37,9 @@ class CreateBookComponent extends Component{
                                         <label> Author: </label>
                                         <input placeholder="Author" name="author" className="form-control" value={this.state.author} onChange={this.changeAuthorHandler} />
                                     </div>
+
+                                    <button className="btn btn-success" onClick={this.saveBook}>Save</button>
+                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                 </form>
                             </div>
                         </div>
