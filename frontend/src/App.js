@@ -14,7 +14,7 @@ function App() {
                   <HeaderComponent />
                   <div className="container">
                       <Switch>
-                          <Route path="/" component={ListBookComponent} />
+                          <Route path="/" exact component={ListBookComponent} />
                           <Route path="/books" component={ListBookComponent} />
                           <Route path="/add-book" component={CreateBookComponent} />
                       </Switch>

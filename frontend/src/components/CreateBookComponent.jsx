@@ -12,7 +12,7 @@ class CreateBookComponent extends Component{
     render() {
         return (
             <div>
-
+                <h1>Book Form</h1>
             </div>
         )
     }
