@@ -26,6 +26,6 @@ public class BookController {
 
     @GetMapping("/employees/{id}")
     public Book getBookById(@PathVariable Long id){
-        return bookRepository.findById(id).get();
+        return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book Not Found"));
     }
 }
