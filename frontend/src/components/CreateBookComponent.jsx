@@ -55,13 +55,23 @@ class CreateBookComponent extends Component{
         this.props.history.push("/books");
     }
 
+    getTitle(){
+        if(this.state.id === -1){
+            return <h3 className="text-center">Add Employee</h3>
+        }else{
+            return <h3 className="text-center">update Employee</h3>
+        }
+    }
+
     render() {
         return (
             <div>
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Add Book</h3>
+                            {
+                                this.getTitle()
+                            }
                             <div className="card-body">
                                 <form>
                                     <div className="form-group">
