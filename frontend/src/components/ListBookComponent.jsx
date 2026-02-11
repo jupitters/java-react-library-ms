@@ -28,7 +28,8 @@ class ListBookComponent extends Component{
                             <tr key={book.id}>{book.name}
                                 <td>{book.name}</td>
                                 <td>{book.author}</td>
-                            </tr>)
+                            </tr>
+                            )
                         }
                         </tbody>
                     </table>
