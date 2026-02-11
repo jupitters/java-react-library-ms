@@ -10,6 +10,14 @@ class CreateBookComponent extends Component{
         }
     }
 
+    changeNameHandler = (e) => {
+        this.setState({ name: e.target.value })
+    }
+
+    changeAuthorHandler = (e) => {
+        this.setState({ author: e.target.value })
+    }
+
     render() {
         return (
             <div>
@@ -22,6 +30,10 @@ class CreateBookComponent extends Component{
                                     <div className="form-group">
                                         <label> Name: </label>
                                         <input placeholder="Name" name="name" className="form-control" value={this.state.name} onChange={this.changeNameHandler} />
+                                    </div>
+                                    <div className="form-group">
+                                        <label> Author: </label>
+                                        <input placeholder="Author" name="author" className="form-control" value={this.state.author} onChange={this.changeAuthorHandler} />
                                     </div>
                                 </form>
                             </div>
