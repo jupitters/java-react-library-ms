@@ -10,6 +10,7 @@ class ListBookComponent extends Component{
         }
         this.addBook = this.addBook.bind(this);
         this.editBook = this.editBook.bind(this);
+        this.deleteBook = this.deleteBook.bind(this);
     }
 
     editBook(id){
@@ -50,6 +51,7 @@ class ListBookComponent extends Component{
                                 <td>{book.author}</td>
                                 <td>
                                     <button onClick={() => this.editBook(book.id)} className="btn btn-info">Update</button>
+                                    <button style={{marginLeft: "10px"}} onClick={() => this.deleteBook(book.id)} className="btn btn-alert">Delete</button>
                                 </td>
                             </tr>
                             )
