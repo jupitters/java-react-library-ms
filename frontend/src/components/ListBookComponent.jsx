@@ -9,6 +9,11 @@ class ListBookComponent extends Component{
             books: []
         }
         this.addBook = this.addBook.bind(this);
+        this.editBook = this.editBook.bind(this);
+    }
+
+    editBook(id){
+        this.props.history.push(`/update-book/${id}`);
     }
 
     componentDidMount() {
