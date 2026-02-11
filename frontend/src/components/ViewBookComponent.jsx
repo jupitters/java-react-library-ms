@@ -20,7 +20,7 @@ class ViewBookComponent extends Component{
     render() {
         return (
             <div>
-                <br><br>
+                <br /> <br />
                 <div className="card col-md-6 offset-md-3">
                     <h3 className="text-center">View Book Details</h3>
                     <div className="card-body">
