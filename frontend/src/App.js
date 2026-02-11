@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ListBookComponent from "./components/ListBookComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
+import CreateBookComponent from "./components/CreateBookComponent";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
                   <HeaderComponent />
                   <div className="container">
                       <Switch>
-                          <Route path="/" component={<ListBookComponent />} />
-                          <Route path="/books" component={<ListBookComponent />} />
+                          <Route path="/" component={ListBookComponent} />
+                          <Route path="/books" component={ListBookComponent} />
+                          <Route path="/add-book" component={CreateBookComponent} />
                       </Switch>
                   </div>
                   <FooterComponent />
