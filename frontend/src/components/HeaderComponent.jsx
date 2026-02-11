@@ -12,7 +12,11 @@ class HeaderComponent extends Component{
     render(){
         return (
             <div>
-
+                <header>
+                    <nav className="navbnar navbar-expand-md navbar-dark bg-dark">
+                        <div><a href="#" className="navbar-brand">Library Management App</a></div>
+                    </nav>
+                </header>
             </div>
         )
     }
