@@ -28,6 +28,10 @@ class CreateBookComponent extends Component{
         this.setState({ author: e.target.value })
     }
 
+    cancel(){
+        this.props.history.push("/books");
+    }
+
     render() {
         return (
             <div>
