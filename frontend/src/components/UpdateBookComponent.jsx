@@ -11,10 +11,10 @@ class UpdateBookComponent extends Component {
         }
         this.changeNameHandler = this.changeNameHandler.bind(this)
         this.changeAuthorHandler = this.changeAuthorHandler.bind(this)
-        this.saveBook = this.saveBook.bind(this)
+        this.updateBook = this.updateBook.bind(this)
     }
 
-    saveBook = (e) => {
+    updateBook = (e) => {
         e.preventDefault()
 
         let book = {name: this.state.name, author: this.state.author};
@@ -53,7 +53,7 @@ class UpdateBookComponent extends Component {
                                         <input placeholder="Author" name="author" className="form-control" value={this.state.author} onChange={this.changeAuthorHandler} />
                                     </div>
 
-                                    <button className="btn btn-success" onClick={this.saveBook}>Save</button>
+                                    <button className="btn btn-success" onClick={this.updateBook}>Update</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                 </form>
                             </div>
