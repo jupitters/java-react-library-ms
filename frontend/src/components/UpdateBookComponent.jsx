@@ -26,7 +26,9 @@ class UpdateBookComponent extends Component {
         e.preventDefault()
 
         let book = {name: this.state.name, author: this.state.author};
-
+        BookService.updateBook(book, this.state.id).then(res => {
+            this.props.history.push("/employees");
+        })
     }
 
     changeNameHandler = (e) => {
