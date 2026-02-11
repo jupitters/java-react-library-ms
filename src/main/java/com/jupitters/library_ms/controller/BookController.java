@@ -31,4 +31,13 @@ public class BookController {
         Book book = bookRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book Not Found"));
         return ResponseEntity.ok(book);
     }
+
+    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book bookDetails){
+        Book book = bookRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book Not Found"));
+        book.setName(bookDetails.getName());
+        book.setAuthor(bookDetails.getAuthor());
+
+        Book updatedBook = bookRepository.save(book);
+        return ResponseEntity.ok(updatedBook);
+    }
 }
