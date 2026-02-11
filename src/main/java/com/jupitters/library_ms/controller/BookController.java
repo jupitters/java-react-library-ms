@@ -3,10 +3,7 @@ package com.jupitters.library_ms.controller;
 import com.jupitters.library_ms.model.Book;
 import com.jupitters.library_ms.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,7 +19,8 @@ public class BookController {
         return bookRepository.findAll();
     }
 
-    public Book saveBook(Book book){
+    @PostMapping("/books")
+    public Book saveBook(@RequestBody Book book){
         return bookRepository.save(book);
     }
 }
