@@ -13,7 +13,7 @@ class ListBookComponent extends Component{
     }
 
     editBook(id){
-        this.props.history.push(`/update-book/${id}`);
+        this.props.history.push(`/add-book/${id}`);
     }
 
     componentDidMount() {
@@ -23,7 +23,7 @@ class ListBookComponent extends Component{
     }
 
     addBook(){
-        this.props.history.push("/add-book");
+        this.props.history.push("/add-book/-1");
     }
 
     render(){
