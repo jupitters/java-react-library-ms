@@ -9,6 +9,10 @@ class ListBookComponent extends Component{
         }
     }
 
+    componentDidMount() {
+
+    }
+
     render(){
         return(
             <div>
