@@ -26,9 +26,7 @@ class UpdateBookComponent extends Component {
         e.preventDefault()
 
         let book = {name: this.state.name, author: this.state.author};
-        BookService.createBook(book).then(res => {
-            this.props.history.push("/books");
-        })
+
     }
 
     changeNameHandler = (e) => {
@@ -49,7 +47,7 @@ class UpdateBookComponent extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Add Book</h3>
+                            <h3 className="text-center">Update Book</h3>
                             <div className="card-body">
                                 <form>
                                     <div className="form-group">
