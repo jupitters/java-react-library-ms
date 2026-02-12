@@ -32,21 +32,21 @@ const UpdateBookComponent = () => {
         <div>
             <div className="container">
                 <div className="row">
-                    <div className="card col-md-6 offset-md-3 offset-md-3">
+                    <div className="card col-md-6 offset-md-3>
                         <h3 className="text-center">Update Book</h3>
                         <div className="card-body">
                             <form>
-                                <div className="form-group">
+                                <div className="form-group mb-3">
                                     <label> Name: </label>
-                                    <input placeholder="Name" name="name" className="form-control" value={this.state.name} onChange={this.changeNameHandler} />
+                                    <input placeholder="Name" name="name" className="form-control" value={name} onChange={(e) => setName(e.target.event)} />
                                 </div>
                                 <div className="form-group">
                                     <label> Author: </label>
-                                    <input placeholder="Author" name="author" className="form-control" value={this.state.author} onChange={this.changeAuthorHandler} />
+                                    <input placeholder="Author" name="author" className="form-control" value={author} onChange={(e) => setAuthor(e.target.event)} />
                                 </div>
 
-                                <button className="btn btn-success" onClick={this.updateBook}>Save</button>
-                                <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
+                                <button className="btn btn-success" onClick={updateBook}>Save</button>
+                                <button className="btn btn-danger" onClick={cancel)} style={{marginLeft: "10px"}}>Cancel</button>
                             </form>
                         </div>
                     </div>
