@@ -33,8 +33,8 @@ const ListBookComponent = () => {
     return(
         <div>
             <h2 className="text-center">Books List</h2>
-            <div className="row">
-                <button className="btn btn-primary" onClick={addBook}> Add Book</button>
+            <div className="row mb-3">
+                <button className="btn btn-primary btm-sm" onClick={addBook}> Add Book</button>
             </div>
             <div className="row">
                 <table className="table table-striped table-bordered">

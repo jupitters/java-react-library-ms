@@ -15,10 +15,10 @@ function App() {
                   <HeaderComponent />
                   <div className="container">
                       <Routes>
-                          <Route path="/" exact component={<ListBookComponent />} />
-                          <Route path="/books" component={<ListBookComponent />} />
-                          <Route path="/add-book/:id" component={<CreateBookComponent />} />
-                          <Route path="/view-book/:id" component={<ViewBookComponent />} />
+                          <Route path="/" exact element={<ListBookComponent />} />
+                          <Route path="/books" element={<ListBookComponent />} />
+                          <Route path="/add-book/:id" element={<CreateBookComponent />} />
+                          <Route path="/view-book/:id" element={<ViewBookComponent />} />
                           {/*<Route path="/update-book/:id" component={UpdateBookComponent} />*/}
                       </Routes>
                   </div>
