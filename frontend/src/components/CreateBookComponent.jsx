@@ -1,42 +1,34 @@
-import React, { Component } from 'react'
+import { useEffect, useState } from "react";
 import BookService from "../services/BookService";
+import { useNavigate, useParams } from "react-router-dom";
 
-class CreateBookComponent extends Component{
-    constructor(props){
-        super(props)
+const CreateBookComponent = () => {
+    const { id } = useParams()
+    const navigate = useNavigate()
+    const [name, setName] = useState('')
+    const [author, setAuthor] = useState('')
 
-        this.state = {
-            id: this.props.match.params.id,
-            name: '',
-            author: ''
-        }
-        this.changeNameHandler = this.changeNameHandler.bind(this)
-        this.changeAuthorHandler = this.changeAuthorHandler.bind(this)
-        this.saveBook = this.saveBook.bind(this)
-    }
+    useEffect(()=>{
+        if(id === -1) return;
 
-    componentDidMount() {
-        if(this.state.id == -1){
-            return
-        }else{
-            BookService.getBookById(this.state.id).then((res) => {
-                let book = res.data;
-                this.setState({ name: book.name, author: book.author})
-            })
-        }
-    }
+        BookService.getBookById(id).then(res => {
+            let book = res.data;
+            setName(book.name)
+            setAuthor(book.setAuthor)
+        })
+    }, [])
 
-    saveBook = (e) => {
+    const saveBook = (e) => {
         e.preventDefault()
-        let book = {name: this.state.name, author: this.state.author};
+        let book = {name, author};
 
         if(this.state.id == -1){
             BookService.createBook(book).then(res => {
-                this.props.history.push("/books");
+                navigate("/books");
             })
         }else{
-            BookService.updateBook(book, this.state.id).then(res => {
-                this.props.history.push("/employees");
+            BookService.updateBook(book, id).then(() => {
+                navigate("/books");
             })
         }
 
