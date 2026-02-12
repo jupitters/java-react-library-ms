@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ListBookComponent from "./components/ListBookComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
@@ -15,13 +15,13 @@ function App() {
               <div className="container">
                   <HeaderComponent />
                   <div className="container">
-                      <Switch>
+                      <Routes>
                           <Route path="/" exact component={ListBookComponent} />
                           <Route path="/books" component={ListBookComponent} />
                           <Route path="/add-book/:id" component={CreateBookComponent} />
                           <Route path="/view-book/:id" component={ViewBookComponent} />
                           {/*<Route path="/update-book/:id" component={UpdateBookComponent} />*/}
-                      </Switch>
+                      </Routes>
                   </div>
                   <FooterComponent />
               </div>
