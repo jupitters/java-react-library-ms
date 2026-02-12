@@ -1,40 +1,33 @@
-import React, {Component} from 'react'
+import React, {Component, useEffect, useState} from 'react'
 import BookService from "../services/BookService";
+import { useNavigate } from 'react-router-dom';
 
-class ListBookComponent extends Component{
-    constructor(props){
-        super(props)
+const ListBookComponent = () => {
+    const[books, setBooks] = useState([]);
+    const navigate = useNavigate();
 
-        this.state = {
-            books: []
-        }
-        this.addBook = this.addBook.bind(this);
-        this.editBook = this.editBook.bind(this);
-        this.deleteBook = this.deleteBook.bind(this);
-    }
-
-    deleteBook(id){
+    const deleteBook = (id) => {
         BookService.deleteBook(id).then(res => {
-            this.setState({ books: this.state.books.filter(book => book.id != id) })
+            setBooks({ ...books.filter(book => book.id != id) })
         })
     }
 
-    viewBook(id){
-        this.props.history.push(`/view-book/${id}`);
+    const viewBook = (id) => {
+        navigate(`/view-book/${id}`);
     }
 
-    editBook(id){
-        this.props.history.push(`/add-book/${id}`);
+    const editBook = (id) => {
+        navigate(`/add-book/${id}`);
     }
 
-    componentDidMount() {
+    useEffect(()=>{
         BookService.getBooks().then((res) => {
-            this.setState({ books: res.data });
+            setBooks(...books, res.data)
         })
-    }
+    },[])
 
-    addBook(){
-        this.props.history.push("/add-book/-1");
+    const addBook = () => {
+        navigate("/add-book/-1");
     }
 
     render(){
@@ -56,7 +49,7 @@ class ListBookComponent extends Component{
                         <tbody>
                         {
                             this.state.books.map(book =>
-                            <tr key={book.id}>{book.name}
+                            <tr key={book.id}>
                                 <td>{book.name}</td>
                                 <td>{book.author}</td>
                                 <td>
