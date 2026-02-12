@@ -33,10 +33,8 @@ const ListBookComponent = () => {
     return(
         <div>
             <h2 className="text-center">Books List</h2>
-            <div className="row mb-3">
-                <button className="btn btn-primary btm-sm" onClick={addBook}> Add Book</button>
-            </div>
-            <div className="row">
+                <button className="btn btn-primary mb-3" onClick={addBook}> Add Book</button>
+            <div>
                 <table className="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -53,7 +51,7 @@ const ListBookComponent = () => {
                             <td>{book.author}</td>
                             <td>
                                 <button onClick={() => editBook(book.id)} className="btn btn-info">Update</button>
-                                <button style={{marginLeft: "10px"}} onClick={() => deleteBook(book.id)} className="btn btn-alert">Delete</button>
+                                <button style={{marginLeft: "10px"}} onClick={() => deleteBook(book.id)} className="btn btn-danger">Delete</button>
                                 <button style={{marginLeft: "10px"}} onClick={() => viewBook(book.id)} className="btn btn-info">View</button>
                             </td>
                         </tr>
