@@ -1,18 +1,16 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BookService from "../services/BookService";
 import { useParams } from 'react-router-dom';
 
 const ViewBookComponent = () => {
     const { id } = useParams()
-    const [name, setName] = useState('')
-    const [author, setAuthor] = useState('')
+    const [book, setBook] = useState({})
 
     useEffect(() => {
-        BookService.getBookById(id).then(book => {
-            setName(book.name)
-            setAuthor(book.author)
+        BookService.getBookById(id).then(res => {
+            setBook(res.data)
         })
-    }, [])
+    }, [id])
 
     return (
         <div>
@@ -21,10 +19,10 @@ const ViewBookComponent = () => {
                 <h3 className="text-center">View Book Details</h3>
                 <div className="card-body">
                     <div className="row">
-                        <label>Title: </label>
-                        <div> {this.state.book.name}</div>
-                        <label>Author: </label>
-                        <div> {this.state.book.author}</div>
+                        <h4>Title: </h4>
+                        <div style={{fontWeight: "bold"}}>{book.name}</div>
+                        <h4>Author: </h4>
+                        <div style={{fontWeight: "bold"}}>{book.author}</div>
                     </div>
                 </div>
             </div>
