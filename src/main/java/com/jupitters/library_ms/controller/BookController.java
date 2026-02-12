@@ -44,6 +44,7 @@ public class BookController {
         return ResponseEntity.ok(updatedBook);
     }
     
+    @DeleteMapping("/books/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteBook(@PathVariable Long id){
         Book book = bookRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book Not Found"));
         bookRepository.delete(book);
