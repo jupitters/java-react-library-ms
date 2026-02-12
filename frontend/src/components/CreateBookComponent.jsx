@@ -35,20 +35,12 @@ const CreateBookComponent = () => {
 
     }
 
-    changeNameHandler = (e) => {
-        this.setState({ name: e.target.value })
+    const cancel = () => {
+        navigate("/books");
     }
 
-    changeAuthorHandler = (e) => {
-        this.setState({ author: e.target.value })
-    }
-
-    cancel(){
-        this.props.history.push("/books");
-    }
-
-    getTitle(){
-        if(this.state.id == -1){
+    const getTitle = () => {
+        if(id == -1){
             return <h3 className="text-center">Add Employee</h3>
         }else{
             return <h3 className="text-center">update Employee</h3>
