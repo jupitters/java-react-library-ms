@@ -16,13 +16,13 @@ const CreateBookComponent = () => {
             setName(book.name)
             setAuthor(book.setAuthor)
         })
-    }, [])
+    }, [id])
 
     const saveBook = (e) => {
         e.preventDefault()
         let book = {name, author};
 
-        if(this.state.id == -1){
+        if(this.state.id === -1){
             BookService.createBook(book).then(res => {
                 navigate("/books");
             })
@@ -40,10 +40,10 @@ const CreateBookComponent = () => {
     }
 
     const getTitle = () => {
-        if(id == -1){
-            return <h3 className="text-center">Add Employee</h3>
+        if(id === -1){
+            return <h3 className="text-center">Add Book</h3>
         }else{
-            return <h3 className="text-center">update Employee</h3>
+            return <h3 className="text-center">Update Book</h3>
         }
     }
 
