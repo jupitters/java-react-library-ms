@@ -9,7 +9,7 @@ const CreateBookComponent = () => {
     const [author, setAuthor] = useState('')
 
     useEffect(()=>{
-        if(id === -1) return;
+        if(id === "-1") return;
 
         BookService.getBookById(id).then(res => {
             let book = res.data;
@@ -22,7 +22,7 @@ const CreateBookComponent = () => {
         e.preventDefault()
         let book = {name, author};
 
-        if(this.state.id === -1){
+        if(id === "-1"){
             BookService.createBook(book).then(res => {
                 navigate("/books");
             })
@@ -40,7 +40,7 @@ const CreateBookComponent = () => {
     }
 
     const getTitle = () => {
-        if(id === -1){
+        if(id === "-1"){
             return <h3 className="text-center">Add Book</h3>
         }else{
             return <h3 className="text-center">Update Book</h3>

@@ -1,40 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import BookService from "../services/BookService";
+import { useParams } from 'react-router-dom';
 
-class ViewBookComponent extends Component{
-    constructor(props) {
-        super(props);
+const ViewBookComponent = () => {
+    const { id } = useParams()
+    const [name, setName] = useState('')
+    const [author, setAuthor] = useState('')
 
-        this.state = {
-            id: this.props.match.params.id,
-            book: {}
-        }
-    }
-
-    componentDidMount() {
-        BookService.getBookById(this.state.id).then(res => {
-            this.setState({ book: res.data });
+    useEffect(() => {
+        BookService.getBookById(id).then(book => {
+            setName(book.name)
+            setAuthor(book.author)
         })
-    }
+    }, [])
 
-    render() {
-        return (
-            <div>
-                <br /> <br />
-                <div className="card col-md-6 offset-md-3">
-                    <h3 className="text-center">View Book Details</h3>
-                    <div className="card-body">
-                        <div className="row">
-                            <label>Title: </label>
-                            <div> {this.state.book.name}</div>
-                            <label>Author: </label>
-                            <div> {this.state.book.author}</div>
-                        </div>
+    return (
+        <div>
+            <br /> <br />
+            <div className="card col-md-6 offset-md-3">
+                <h3 className="text-center">View Book Details</h3>
+                <div className="card-body">
+                    <div className="row">
+                        <label>Title: </label>
+                        <div> {this.state.book.name}</div>
+                        <label>Author: </label>
+                        <div> {this.state.book.author}</div>
                     </div>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default ViewBookComponent
