@@ -8,7 +8,7 @@ const ListBookComponent = () => {
 
     useEffect(()=>{
         BookService.getBooks().then((res) => {
-            setBooks(...books, res.data)
+            setBooks(res.data)
         })
     },[])
 
