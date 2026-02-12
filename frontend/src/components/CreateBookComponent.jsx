@@ -14,7 +14,7 @@ const CreateBookComponent = () => {
         BookService.getBookById(id).then(res => {
             let book = res.data;
             setName(book.name)
-            setAuthor(book.setAuthor)
+            setAuthor(book.author)
         })
     }, [id])
 

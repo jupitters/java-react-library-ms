@@ -39,11 +39,11 @@ const UpdateBookComponent = () => {
                             <form>
                                 <div className="form-group mb-3">
                                     <label> Name: </label>
-                                    <input placeholder="Name" name="name" className="form-control" value={name} onChange={(e) => setName(e.target.event)} />
+                                    <input placeholder="Name" name="name" className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
                                 </div>
                                 <div className="form-group">
                                     <label> Author: </label>
-                                    <input placeholder="Author" name="author" className="form-control" value={author} onChange={(e) => setAuthor(e.target.event)} />
+                                    <input placeholder="Author" name="author" className="form-control" value={author} onChange={(e) => setAuthor(e.target.value)} />
                                 </div>
 
                                 <button className="btn btn-success" onClick={updateBook}>Save</button>
