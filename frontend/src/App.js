@@ -12,7 +12,6 @@ function App() {
   return (
       <div>
           <BrowserRouter>
-              <div className="container">
                   <HeaderComponent />
                   <div className="container">
                       <Routes>
@@ -24,7 +23,6 @@ function App() {
                       </Routes>
                   </div>
                   <FooterComponent />
-              </div>
           </BrowserRouter>
       </div>
   );
