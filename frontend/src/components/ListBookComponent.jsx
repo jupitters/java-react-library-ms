@@ -1,10 +1,16 @@
-import React, {Component, useEffect, useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import BookService from "../services/BookService";
 import { useNavigate } from 'react-router-dom';
 
 const ListBookComponent = () => {
     const [books, setBooks] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(()=>{
+        BookService.getBooks().then((res) => {
+            setBooks(...books, res.data)
+        })
+    },[])
 
     const deleteBook = (id) => {
         BookService.deleteBook(id).then(res => {
@@ -19,12 +25,6 @@ const ListBookComponent = () => {
     const editBook = (id) => {
         navigate(`/add-book/${id}`);
     }
-
-    useEffect(()=>{
-        BookService.getBooks().then((res) => {
-            setBooks(...books, res.data)
-        })
-    },[])
 
     const addBook = () => {
         navigate("/add-book/-1");
