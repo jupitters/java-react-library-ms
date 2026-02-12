@@ -13,8 +13,8 @@ const ListBookComponent = () => {
     },[])
 
     const deleteBook = (id) => {
-        BookService.deleteBook(id).then(res => {
-            setBooks({ ...books.filter(book => book.id != id) })
+        BookService.deleteBook(id).then(() => {
+            setBooks(books.filter(book => book.id !== id))
         })
     }
 
