@@ -46,7 +46,7 @@ const UpdateBookComponent = () => {
                                 </div>
 
                                 <button className="btn btn-success" onClick={updateBook}>Save</button>
-                                <button className="btn btn-danger" onClick={cancel)} style={{marginLeft: "10px"}}>Cancel</button>
+                                <button className="btn btn-danger" onClick={cancel} style={{marginLeft: "10px"}}>Cancel</button>
                             </form>
                         </div>
                     </div>
